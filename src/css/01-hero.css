@@ -1,0 +1,146 @@
+/* ---------------------------------------------------------------- hero
+   Camadas separadas: o escritório (fundo) e o doutor recortado por cima, pra o rosto não
+   passar pela IA de novo e pra o celular ter o próprio enquadramento (o do 043: rótulo,
+   título, doutor, texto e botões, tudo centrado).                                           */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: clip;
+  background: var(--profundo);
+  isolation: isolate;
+}
+.hero__fundo { position: absolute; inset: 0; z-index: -3; }
+.hero__fundo picture, .hero__fundo img { width: 100%; height: 100%; }
+.hero__fundo img { object-fit: cover; object-position: 70% 50%; animation: hero-fundo 2.4s var(--ease) both; }
+@keyframes hero-fundo { from { transform: scale(1.07); } }
+.hero__veu {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(5 8 15 / .94) 0%, rgb(5 8 15 / .82) 30%, rgb(5 8 15 / .35) 52%, rgb(5 8 15 / 0) 66%),
+    linear-gradient(0deg, var(--marinho) 0%, rgb(10 20 36 / 0) 22%),
+    linear-gradient(180deg, rgb(5 8 15 / .55) 0%, rgb(5 8 15 / 0) 18%);
+  pointer-events: none;
+}
+.hero__inner { padding: 150px 0 120px; }
+.hero__inner > :not(.hero__doutor) { position: relative; z-index: 1; max-width: 640px; }
+.hero__rotulo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.hero__rotulo::after { content: ''; width: 90px; height: 1px; background: linear-gradient(90deg, var(--ouro), transparent); }
+.hero__inner > .hero__titulo {
+  margin-top: 26px;
+  font-size: 54px;
+  line-height: 1.1;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  max-width: none;
+  white-space: nowrap;
+}
+/* o doutor se posiciona pela seção inteira (e não pelo bloco do texto, que muda de altura e
+   de largura com a tela: em 1920 ele entrava por cima do título) */
+@media (min-width: 62em) {
+  .hero__inner { position: static; }
+}
+.hero__sub { margin-top: 28px; font-size: 18px; line-height: 1.7; color: rgb(255 255 255 / .82); max-width: 33em; }
+.hero__botoes { margin-top: 40px; }
+.hero__linha { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 0; margin-top: 30px; font-size: 11.5px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: rgb(255 255 255 / .78); }
+.hero__linha li + li::before { content: ''; display: inline-block; width: 7px; height: 7px; margin: 0 18px 1px; transform: rotate(45deg); background: var(--ouro); box-shadow: 0 0 10px rgb(232 184 74 / .6); }
+
+/* o doutor: maior que a dobra, cortado na cintura, como no mockup aprovado */
+.hero__doutor {
+  position: absolute;
+  z-index: 0;
+  right: max(-30px, calc((100% - var(--largura)) / 2 - 50px));
+  top: 18%;
+  height: 96%;
+  aspect-ratio: 560 / 974;
+  pointer-events: none;
+  animation: hero-doutor 1.5s var(--ease) .35s both;
+}
+.hero__doutor picture, .hero__doutor img { width: 100%; height: 100%; }
+.hero__doutor img { object-fit: contain; object-position: top center; filter: drop-shadow(-24px 10px 40px rgb(0 0 0 / .45)); }
+/* luz de recorte dourada atrás do ombro, pra ele sentar na luz das prateleiras */
+.hero__doutor::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  right: -6%;
+  top: 4%;
+  height: 60%;
+  background: radial-gradient(closest-side, rgb(232 184 74 / .22), transparent);
+  filter: blur(10px);
+}
+@keyframes hero-doutor { from { opacity: 0; transform: translate3d(36px, 18px, 0) scale(.985); } }
+/* com a abertura da logo ele já está pintado por baixo dela (é o LCP): entra só deslizando */
+@keyframes hero-doutor-desliza { from { transform: translate3d(40px, 14px, 0); } }
+@keyframes hero-doutor-cel { from { transform: translate3d(0, 28px, 0); } }
+.so-pc { display: inline; }
+
+@media (max-width: 74.99em) {
+  .hero__inner > .hero__titulo { font-size: clamp(36PX, 4.2vw, 50PX); }
+  .hero__inner > :not(.hero__doutor) { max-width: 560PX; }
+  .hero__doutor { right: max(0px, calc((100% - var(--largura)) / 2 + 30px)); height: 90%; top: 22%; }
+}
+
+/* celular e tablet em pé: o enquadramento do 043 */
+@media (max-width: 61.99em) {
+  .hero { min-height: 0; display: block; }
+  .hero__fundo img { object-position: 50% 100%; }
+  .hero__veu {
+    background: linear-gradient(180deg, rgb(5 8 15 / .82) 0%, rgb(5 8 15 / .55) 30%, rgb(5 8 15 / .25) 46%, rgb(8 15 28 / .82) 66%, rgb(10 20 36 / .94) 80%, var(--marinho) 100%);
+  }
+  .hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 104PX 0 52PX; }
+  .hero__inner > :not(.hero__doutor) { max-width: 600PX; }
+  .hero__rotulo { justify-content: center; font-size: 10.5PX; letter-spacing: .24em; gap: 0; }
+  .hero__rotulo::after { display: none; }
+  .hero__inner > .hero__titulo { margin-top: 18PX; font-size: clamp(30PX, 8.6vw, 46PX); white-space: normal; }
+  .so-pc { display: none; }
+  .hero__doutor {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(330PX, 80vw);
+    height: auto;
+    aspect-ratio: 330 / 360;
+    margin: 26PX 0 -6PX;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+    animation-name: hero-doutor-cel;
+  }
+  .hero__doutor picture, .hero__doutor img { height: auto; }
+  .hero__doutor img { object-fit: initial; filter: none; }
+  .hero__doutor::before { display: none; }
+  .hero__sub { margin-top: 22PX; font-size: 15.5PX; }
+  .hero__inner > .hero__botoes { margin-top: 26PX; width: 100%; max-width: 380PX; }
+  .hero__linha { justify-content: center; margin-top: 24PX; font-size: 10PX; letter-spacing: .16em; }
+  .hero__linha li + li::before { margin: 0 10PX 1PX; width: 6PX; height: 6PX; }
+}
+/* no celular a abertura é mais curta e o fundo não faz o zoom: a tela fica pronta antes
+   (o Speed Index do Lighthouse conta cada quadro que ainda muda) */
+@media (max-width: 61.99em) {
+  .hero__fundo img { animation: none; }
+  .hero .anim-hero-texto { animation-duration: .7s; }
+  .hero__rotulo.anim-hero-texto { --atraso: .05s !important; }
+  .hero__titulo.anim-hero { --atraso: .1s !important; }
+  .hero__sub.anim-hero-texto { --atraso: .35s !important; }
+  .hero__botoes.anim-hero-texto { --atraso: .45s !important; }
+  .hero__linha.anim-hero-texto { --atraso: .55s !important; }
+  .hero__doutor { animation-duration: 1s; animation-delay: .15s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__fundo img, .hero__doutor { animation: none; }
+}

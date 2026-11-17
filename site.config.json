@@ -1,0 +1,18 @@
+{
+  "dominio": "",
+  "indexar": false,
+  "whatsapp": "5533998376540",
+  "telefone": "(33) 99837-6540",
+  "email": "jonathanvale.adv@gmail.com",
+  "endereco": "Avenida Getúlio Vargas, 322, Centro, Tumiritinga/MG",
+  "mapa": "https://www.google.com/maps/search/?api=1&query=Avenida%20Get%C3%BAlio%20Vargas%2C%20322%2C%20Centro%2C%20Tumiritinga%20-%20MG",
+  "mapaEmbed": "https://www.google.com/maps?q=Avenida%20Get%C3%BAlio%20Vargas%2C%20322%2C%20Centro%2C%20Tumiritinga%20-%20MG&output=embed",
+  "descricao": "Advocacia em Tumiritinga/MG e região: Direito Trabalhista, Previdenciário (INSS), de Família e Lei Maria da Penha. Dr. Jonathan Vale, atendimento presencial e online.",
+  "pendencias": [
+    "indexar false e dominio vazio até publicar",
+    "número da OAB/MG (hoje aparece só OAB/MG)",
+    "formação e tempo de advocacia pro Sobre",
+    "endereço: site usa Av. Getúlio Vargas, 322; contrato tem R. Salvador Raimundo, 485",
+    "fundos do hero e foto do doutor no hero gerados no ChatGPT a partir das fotos dele"
+  ]
+}

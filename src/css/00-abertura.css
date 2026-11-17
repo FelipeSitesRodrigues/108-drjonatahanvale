@@ -1,0 +1,64 @@
+/* ---------------------------------------------------------------- abertura com a logo
+   Modelo da 0105 Ston e da 0104 Lume (pedido do Felipe): cortina marinho; a logo se monta em
+   pedaços que entram alternando de baixo e de cima (balança da esquerda, espada com o JV,
+   balança da direita, JONATHAN, VALE), o fio com o losango abre do centro, "Advocacia e
+   Consultoria Jurídica" sobe; depois a cortina inteira sai pra cima com a borda de baixo curva
+   e revela o hero. Uma imagem só (a logo inteira) repetida em 7 recortes parados (clip-path
+   fixo, quem anda é transform e opacity). Linha do tempo: 0 a .75 s pedaços · .5 a 1 s fio e
+   linha · 1 a 1.6 s saída. Uma vez por visita; ?abertura no endereço força.                   */
+.abertura { display: none; }
+.abre .abertura {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(60% 55% at 50% 45%, #13233F, #0A1424 55%, #05080F);
+  pointer-events: none;
+  animation: abertura-sai .62s cubic-bezier(.76, 0, .24, 1) 1s both;
+}
+/* a borda curva: meia-lua presa embaixo da tela, que sobe junto */
+.abre .abertura::after { content: ''; position: absolute; left: -10%; right: -10%; top: calc(100% - 1px); height: 14vh; border-radius: 0 0 50% 50%; background: #05080F; box-shadow: 0 2px 0 rgb(242 193 78 / .35); }
+.abre .abertura.acabou { display: none; }
+.abertura__marca { position: relative; animation: abertura-marca .38s ease-in 1s both; }
+/* halo dourado atrás do monograma */
+.abertura__marca::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 150%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(242 193 78 / .22), rgb(242 193 78 / .05) 55%, transparent);
+  animation: abertura-halo 1s cubic-bezier(.22, 1, .36, 1) .05s both;
+}
+.abertura__logo { position: relative; width: min(280PX, 64vw); aspect-ratio: 520 / 472; }
+.abertura__p { position: absolute; inset: 0; }
+.abertura__p img { width: 100%; height: 100%; }
+.abertura__p--esq { clip-path: polygon(0% 0%, 38.49% 0%, 38.49% 68.09%, 0% 68.09%); animation: abertura-desce .6s cubic-bezier(.22, 1, .36, 1) .02s both; }
+.abertura__p--centro { clip-path: polygon(38.49% 0%, 60.71% 0%, 60.71% 68.09%, 38.49% 68.09%); animation: abertura-sobe .6s cubic-bezier(.22, 1, .36, 1) .1s both; }
+.abertura__p--dir { clip-path: polygon(60.71% 0%, 100% 0%, 100% 68.09%, 60.71% 68.09%); animation: abertura-desce .6s cubic-bezier(.22, 1, .36, 1) .18s both; }
+.abertura__p--nome1 { clip-path: polygon(0% 68.79%, 67.15% 68.79%, 67.15% 84.22%, 6.44% 84.22%, 6.44% 85.64%, 0% 85.64%); animation: abertura-sobe-pouco .6s cubic-bezier(.22, 1, .36, 1) .28s both; }
+.abertura__p--nome2 { clip-path: polygon(67.15% 68.79%, 100% 68.79%, 100% 85.64%, 67.15% 85.64%); animation: abertura-desce-pouco .6s cubic-bezier(.22, 1, .36, 1) .36s both; }
+.abertura__p--fio { clip-path: polygon(6.44% 84.22%, 100% 84.22%, 100% 90.43%, 0% 90.43%, 0% 85.64%, 6.44% 85.64%); transform-origin: 50% 87%; animation: abertura-fio .55s cubic-bezier(.22, 1, .36, 1) .5s both; }
+.abertura__p--sub { clip-path: polygon(0% 90.43%, 100% 90.43%, 100% 100%, 0% 100%); animation: abertura-sobe-pouco .5s cubic-bezier(.22, 1, .36, 1) .62s both; }
+@keyframes abertura-sobe { from { opacity: 0; transform: translate3d(0, 18%, 0); } }
+@keyframes abertura-desce { from { opacity: 0; transform: translate3d(0, -18%, 0); } }
+@keyframes abertura-sobe-pouco { from { opacity: 0; transform: translate3d(0, 8%, 0); } }
+@keyframes abertura-desce-pouco { from { opacity: 0; transform: translate3d(0, -8%, 0); } }
+@keyframes abertura-fio { from { opacity: 0; transform: scaleX(0); } }
+@keyframes abertura-halo { from { opacity: 0; transform: translate(-50%, -50%) scale(.4); } }
+@keyframes abertura-marca { to { opacity: 0; transform: translate3d(0, -24px, 0); } }
+@keyframes abertura-sai { to { transform: translate3d(0, calc(-100% - 15vh), 0); } }
+
+/* o hero e o cabeçalho esperam a cortina sair (somam ~1 s) */
+.abre .topo { animation-delay: 1.15s; }
+.abre .hero__fundo img { animation-delay: .9s; }
+.abre .hero__doutor { animation-name: hero-doutor-desliza; animation-delay: 1.05s; }
+.abre .hero .anim-hero-texto { animation-delay: calc(var(--atraso, .45s) + .95s); }
+.abre .hero .anim-hero[data-palavras] .pc { animation-delay: calc(var(--c, 0) * 18ms + var(--atraso, .2s) + .95s); }
+@media (prefers-reduced-motion: reduce) {
+  .abre .abertura { display: none; }
+}

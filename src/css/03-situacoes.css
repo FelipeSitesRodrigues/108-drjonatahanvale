@@ -1,0 +1,27 @@
+/* ---------------------------------------------------------------- situações (seção clara) */
+.situacoes__grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.js .situacao, .situacao {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 24px;
+  border-radius: 4px;
+  background: #FFFDF8;
+  border: 1px solid var(--linha-clara);
+  box-shadow: 0 1px 2px rgb(10 20 36 / .05), 0 10px 24px rgb(10 20 36 / .06);
+  transition: opacity .7s var(--ease) var(--d), transform 1.1s var(--anim-mola-suave) var(--d), box-shadow .4s var(--ease-hover), border-color .4s var(--ease-hover);
+}
+.situacao .i { font-size: 32px; color: var(--ouro-fundo); transition: transform .5s var(--ease); }
+.situacao p { font-size: 15px; line-height: 1.55; color: #262E3D; }
+.situacao:hover { border-color: rgb(184 134 43 / .55); box-shadow: 0 2px 4px rgb(10 20 36 / .06), 0 20px 40px rgb(10 20 36 / .12); }
+.situacao.visivel:hover { transform: translate3d(0, -5px, 0); transition-delay: 0s; }
+.situacao:hover .i { transform: scale(1.1) rotate(-4deg); }
+@media (max-width: 61.99em) {
+  .situacoes__grade { grid-template-columns: 1fr 1fr; gap: 14PX; }
+}
+@media (max-width: 35.99em) {
+  .situacoes__grade { grid-template-columns: 1fr; gap: 10PX; }
+  .js .situacao, .situacao { flex-direction: row; align-items: center; gap: 16PX; padding: 18PX 18PX; }
+  .situacao .i { font-size: 26PX; }
+  .situacao p { font-size: 14.5PX; }
+}

@@ -1,0 +1,45 @@
+/* ---------------------------------------------------------------- prazos (seção clara)
+   10 e 48 contam (contador do kit); 2 e 3 são pequenos demais pra contar e entram com pulo. */
+.prazos__grade { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.prazo { padding: 0 16px; border-left: 1px solid var(--linha-clara); }
+.prazo:first-child { border-left: 0; }
+.prazo__num {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 42px;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.1;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  background: var(--espelho-escuro);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.prazo__num > span { -webkit-background-clip: text; background-clip: text; background-image: inherit; color: transparent; }
+.prazo__pulo { display: inline-block; }
+.js .prazo.visivel .prazo__pulo { animation: prazo-pulo .8s cubic-bezier(.34, 1.56, .64, 1) .55s both; }
+@keyframes prazo-pulo { from { opacity: 0; transform: scale(.6); } }
+.prazo p { max-width: 24ch; margin-inline: auto; font-size: 14.5px; line-height: 1.55; color: var(--tinta-2); }
+.prazos__nota { position: relative; z-index: 1; margin-top: 48px; text-align: center; font-family: var(--fonte-titulo); font-style: italic; font-size: 21px; color: #3A4254; }
+.prazos__acao { position: relative; z-index: 1; margin-top: 30px; text-align: center; }
+.prazos__acao .botao { --anim-luz: #E8B84A; }
+@media (max-width: 61.99em) {
+  .prazos__grade { grid-template-columns: 1fr 1fr; gap: 34PX 12PX; }
+  .prazo__num { font-size: clamp(28PX, 5.4vw, 40PX); }
+  .prazo { border-left: 0; padding: 0 6PX; }
+  .prazo:nth-child(even) { border-left: 1px solid var(--linha-clara); }
+}
+@media (max-width: 35.99em) {
+  .prazos__grade { grid-template-columns: 1fr; gap: 26PX; text-align: left; }
+  .prazo, .prazo:nth-child(even) { border-left: 2px solid rgb(184 134 43 / .5); padding: 2PX 0 2PX 18PX; }
+  .prazo__num { font-size: 34PX; margin-bottom: 4PX; }
+  .prazo p { margin-inline: 0; max-width: 40ch; }
+  .prazos__nota { font-size: 18PX; }
+  .prazos__acao .botao { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .prazo.visivel .prazo__pulo { animation: none; }
+}

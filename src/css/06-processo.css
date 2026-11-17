@@ -1,0 +1,63 @@
+/* ---------------------------------------------------------------- como funciona
+   A linha tracejada dourada se desenha da esquerda pra direita (scaleX) quando a lista entra,
+   e os passos vêm em onda logo atrás.                                                        */
+.js .passos[data-revela], .passos { opacity: 1; transform: none; filter: none; }
+.passos { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; text-align: center; }
+.passos::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgb(232 184 74 / .6) 0 6px, transparent 6px 14px);
+  transform-origin: left center;
+}
+.js .passos::before { transform: scaleX(0); transition: transform 1.8s var(--ease) .2s; }
+.js .passos.visivel::before { transform: none; }
+.passo { position: relative; padding: 0 8px; }
+.passo__num {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #182844, #08111F);
+  border: 1px solid rgb(232 184 74 / .55);
+  box-shadow: 0 0 28px rgb(232 184 74 / .18), inset 0 1px 0 rgb(255 255 255 / .12);
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ouro-claro);
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease-hover);
+}
+.passo:hover .passo__num { transform: translate3d(0, -4px, 0); box-shadow: 0 0 44px rgb(232 184 74 / .38), inset 0 1px 0 rgb(255 255 255 / .18); }
+.passo h3 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 2.6em;
+  margin-bottom: 8px;
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+.passo p { font-size: 14px; line-height: 1.6; color: var(--texto-2); }
+@media (max-width: 61.99em) {
+  .passos { grid-template-columns: 1fr; gap: 0; text-align: left; max-width: 480PX; margin-inline: auto; }
+  .passos::before { top: 0; bottom: 0; left: 34PX; right: auto; width: 1px; height: auto; background: repeating-linear-gradient(180deg, rgb(232 184 74 / .6) 0 6px, transparent 6px 14px); transform-origin: center top; }
+  .js .passos::before { transform: scaleY(0); }
+  .passo { display: grid; grid-template-columns: 68PX 1fr; column-gap: 18PX; padding: 0 0 28PX; }
+  .passo__num { grid-row: span 2; width: 68PX; height: 68PX; margin: 0; font-size: 23PX; }
+  .passo h3 { justify-content: flex-start; align-self: end; min-height: 0; margin-bottom: 4PX; }
+  .passo p { align-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .passos::before { transform: none; transition: none; }
+}

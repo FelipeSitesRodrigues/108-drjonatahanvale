@@ -1,0 +1,25 @@
+/* ---------------------------------------------------------------- faixa de selos */
+.selos { position: relative; background: linear-gradient(180deg, var(--marinho), #08111F); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
+.selos__grade { display: grid; grid-template-columns: repeat(4, 1fr); }
+.selos__grade li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 26px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / .82);
+  border-left: 1px solid var(--linha-suave);
+}
+.selos__grade li:first-child { border-left: 0; }
+.selos__grade .i { font-size: 30px; color: var(--ouro); filter: drop-shadow(0 0 8px rgb(232 184 74 / .4)); }
+@media (max-width: 61.99em) {
+  .selos__grade { grid-template-columns: 1fr 1fr; }
+  .selos__grade li { padding: 20PX 14PX; gap: 12PX; font-size: 10.5PX; letter-spacing: .12em; }
+  .selos__grade li:nth-child(odd) { border-left: 0; }
+  .selos__grade li:nth-child(n+3) { border-top: 1px solid var(--linha-suave); }
+  .selos__grade .i { font-size: 24PX; }
+}

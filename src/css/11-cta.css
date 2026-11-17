@@ -1,0 +1,26 @@
+/* ---------------------------------------------------------------- chamada final */
+.cta { position: relative; overflow: clip; padding: 120px 0 128px; text-align: center; background: var(--marinho); }
+.cta::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  width: min(1200px, 120%);
+  height: 620px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 100%, rgb(232 184 74 / .2), rgb(232 184 74 / .05) 42%, transparent 72%);
+  pointer-events: none;
+}
+.cta__inner { position: relative; z-index: 1; }
+.cta__titulo { font-size: 50px; letter-spacing: .05em; }
+.cta__texto { max-width: 52ch; margin: 24px auto 38px; font-size: 17px; color: var(--texto); }
+.cta__botao { min-height: 60px; padding: 0 40px; font-size: 13px; }
+.cta__micro { margin-top: 22px; font-size: 13px; letter-spacing: .04em; color: var(--texto-2); }
+@media (max-width: 47.99em) {
+  .cta { padding: 80PX 0 88PX; }
+  .cta__titulo { font-size: clamp(27PX, 8vw, 36PX); }
+  .cta__texto { font-size: 15.5PX; }
+  .cta__botao { width: 100%; max-width: 380PX; }
+}
+
+.prazos .tarja, .cta .tarja { white-space: nowrap; }

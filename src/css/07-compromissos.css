@@ -1,0 +1,24 @@
+/* ---------------------------------------------------------------- compromissos
+   2x2 de cartões e o monograma JV enorme e apagado no canto (marca d'água do 043). A imagem
+   (40 KB) só entra quando a seção aparece: como fundo de CSS ela baixava antes da 1ª pintura.          */
+.compromissos { overflow: clip; }
+.compromissos__grade { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1000px; margin-inline: auto; }
+.js .compromissos .cartao, .compromissos .cartao { padding: 34px 32px; }
+.marca-dagua {
+  position: absolute;
+  right: -3%;
+  top: 50%;
+  width: min(460px, 42vw);
+  aspect-ratio: 366 / 397;
+  transform: translateY(-50%);
+  background: url(/assets/img/monograma-marca.webp) center / contain no-repeat;
+  opacity: .06;
+  pointer-events: none;
+}
+.js .marca-dagua:not(.visivel) { background-image: none; }
+.marca-dagua--esq { right: auto; left: -4%; opacity: .05; }
+@media (max-width: 47.99em) {
+  .compromissos__grade { grid-template-columns: 1fr; gap: 14PX; }
+  .js .compromissos .cartao, .compromissos .cartao { padding: 26PX 22PX; }
+  .marca-dagua { opacity: .045; width: 70vw; }
+}

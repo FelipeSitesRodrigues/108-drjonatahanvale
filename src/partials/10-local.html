@@ -1,0 +1,23 @@
+    <section class="secao secao--escura local" id="contato">
+      <div class="caixa local__inner">
+        <div class="local__texto">
+          <p class="sobre__rotulo" data-revela>Venha até o escritório</p>
+          <h2 class="titulo local__titulo" data-palavras data-revela="palavras">Escritório em <span class="tarja ouro">Tumiritinga</span></h2>
+          <ul class="local__dados">
+            <li data-revela="grade" style="--i:0"><i data-i="map-pin"></i><span>{{cfg.endereco}}</span></li>
+            <li data-revela="grade" style="--i:1"><i data-i="whatsapp-logo"></i><a href="{{wa:Olá, Dr. Jonathan. Vim pelo site e gostaria de conversar sobre o meu caso.}}" target="_blank" rel="noopener">{{cfg.telefone}}</a></li>
+            <li data-revela="grade" style="--i:2"><i data-i="envelope-simple"></i><a href="mailto:{{cfg.email}}">{{cfg.email}}</a></li>
+          </ul>
+          <div class="botoes" data-revela style="--atraso:.3s">
+            <a class="botao botao--contorno" href="{{cfg.mapa}}" target="_blank" rel="noopener"><i data-i="navigation-arrow"></i>Como chegar</a>
+          </div>
+        </div>
+        <div class="mapa" data-revela="zoom" data-mapa="{{cfg.mapaEmbed}}">
+          <div class="mapa__capa" aria-hidden="true">
+            <span class="mapa__rua mapa__rua--1"></span><span class="mapa__rua mapa__rua--2"></span><span class="mapa__rua mapa__rua--3"></span><span class="mapa__rua mapa__rua--4"></span>
+            <span class="mapa__pino"><i data-i="map-pin" data-w="fill"></i></span>
+          </div>
+          <button class="mapa__abrir" type="button"><i data-i="map-trifold"></i>Ver o mapa aqui</button>
+        </div>
+      </div>
+    </section>

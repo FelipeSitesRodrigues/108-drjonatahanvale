@@ -1,0 +1,177 @@
+{
+ "hero-fundo-960.avif": {
+  "w": 960,
+  "h": 540,
+  "kb": 9
+ },
+ "hero-fundo-960.webp": {
+  "w": 960,
+  "h": 540,
+  "kb": 18
+ },
+ "hero-fundo-1280.avif": {
+  "w": 1280,
+  "h": 720,
+  "kb": 13
+ },
+ "hero-fundo-1280.webp": {
+  "w": 1280,
+  "h": 720,
+  "kb": 25
+ },
+ "hero-fundo-1672.avif": {
+  "w": 1672,
+  "h": 941,
+  "kb": 17
+ },
+ "hero-fundo-1672.webp": {
+  "w": 1672,
+  "h": 941,
+  "kb": 35
+ },
+ "hero-fundo-celular-480.avif": {
+  "w": 480,
+  "h": 853,
+  "kb": 9
+ },
+ "hero-fundo-celular-480.webp": {
+  "w": 480,
+  "h": 853,
+  "kb": 17
+ },
+ "hero-fundo-celular-720.avif": {
+  "w": 720,
+  "h": 1279,
+  "kb": 14
+ },
+ "hero-fundo-celular-720.webp": {
+  "w": 720,
+  "h": 1279,
+  "kb": 28
+ },
+ "hero-fundo-celular-941.avif": {
+  "w": 941,
+  "h": 1672,
+  "kb": 19
+ },
+ "hero-fundo-celular-941.webp": {
+  "w": 941,
+  "h": 1672,
+  "kb": 39
+ },
+ "doutor-360.avif": {
+  "w": 360,
+  "h": 626,
+  "kb": 18
+ },
+ "doutor-360.webp": {
+  "w": 360,
+  "h": 626,
+  "kb": 26
+ },
+ "doutor-560.avif": {
+  "w": 560,
+  "h": 974,
+  "kb": 32
+ },
+ "doutor-560.webp": {
+  "w": 560,
+  "h": 974,
+  "kb": 48
+ },
+ "doutor-800.avif": {
+  "w": 800,
+  "h": 1391,
+  "kb": 53
+ },
+ "doutor-800.webp": {
+  "w": 800,
+  "h": 1391,
+  "kb": 80
+ },
+ "doutor-cel-400.avif": {
+  "w": 400,
+  "h": 429,
+  "kb": 15
+ },
+ "doutor-cel-400.webp": {
+  "w": 400,
+  "h": 429,
+  "kb": 22
+ },
+ "doutor-cel-560.avif": {
+  "w": 560,
+  "h": 601,
+  "kb": 24
+ },
+ "doutor-cel-560.webp": {
+  "w": 560,
+  "h": 601,
+  "kb": 36
+ },
+ "doutor-cel-760.avif": {
+  "w": 760,
+  "h": 816,
+  "kb": 37
+ },
+ "doutor-cel-760.webp": {
+  "w": 760,
+  "h": 816,
+  "kb": 55
+ },
+ "sobre-420.avif": {
+  "w": 420,
+  "h": 525,
+  "kb": 14
+ },
+ "sobre-420.webp": {
+  "w": 420,
+  "h": 525,
+  "kb": 17
+ },
+ "sobre-640.avif": {
+  "w": 640,
+  "h": 800,
+  "kb": 23
+ },
+ "sobre-640.webp": {
+  "w": 640,
+  "h": 800,
+  "kb": 27
+ },
+ "sobre-900.avif": {
+  "w": 900,
+  "h": 1125,
+  "kb": 38
+ },
+ "sobre-900.webp": {
+  "w": 900,
+  "h": 1125,
+  "kb": 42
+ },
+ "monograma-132.webp": {
+  "w": 122,
+  "h": 132,
+  "kb": 10
+ },
+ "monograma-marca.webp": {
+  "w": 366,
+  "h": 397,
+  "kb": 40
+ },
+ "logo-abertura-520.avif": {
+  "w": 520,
+  "h": 472,
+  "kb": 33
+ },
+ "logo-abertura-520.webp": {
+  "w": 520,
+  "h": 472,
+  "kb": 50
+ },
+ "og.jpg": {
+  "w": 1200,
+  "h": 630,
+  "kb": 52
+ }
+}

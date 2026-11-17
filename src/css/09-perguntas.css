@@ -1,0 +1,51 @@
+/* ---------------------------------------------------------------- perguntas (acordeão do 043)
+   Abre pela altura em grid (0fr para 1fr), suave e sem medir nada no JS.                    */
+.perguntas { position: relative; z-index: 1; border-top: 1px solid var(--linha-suave); }
+.pergunta { border-bottom: 1px solid var(--linha-suave); }
+.js .pergunta[data-revela='grade'] { transform: translate3d(0, 30px, 0); --d: calc(var(--i, 0) * 60ms); }
+.js .pergunta[data-revela='grade'].visivel { transform: none; }
+.pergunta__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 22px 6px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(255 255 255 / .9);
+  transition: color .3s var(--ease-hover);
+}
+.pergunta__q:hover, .pergunta.aberta .pergunta__q { color: var(--ouro-claro); }
+.pergunta__q i { position: relative; flex: none; width: 16px; height: 16px; }
+.pergunta__q i::before, .pergunta__q i::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--ouro);
+  transform: translate(-50%, -50%);
+  transition: transform .45s var(--ease), opacity .3s;
+}
+.pergunta__q i::before { width: 14px; height: 1.5px; }
+.pergunta__q i::after { width: 1.5px; height: 14px; }
+.pergunta.aberta .pergunta__q i::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+.pergunta__r { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s var(--ease); }
+.pergunta__r > div { overflow: hidden; }
+.pergunta__r p {
+  padding: 0 48px 0 6px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--texto);
+  opacity: 0;
+  transform: translate3d(0, -6px, 0);
+  transition: opacity .35s var(--ease-hover), transform .5s var(--ease), padding .5s var(--ease);
+}
+.pergunta.aberta .pergunta__r { grid-template-rows: 1fr; }
+.pergunta.aberta .pergunta__r p { opacity: 1; transform: none; padding-bottom: 24px; transition-delay: .08s; }
+@media (max-width: 47.99em) {
+  .pergunta__q { font-size: 15PX; padding: 18PX 2PX; gap: 16PX; }
+  .pergunta__r p { padding-right: 20PX; font-size: 14.5PX; }
+}

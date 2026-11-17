@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- @preload -->
+  <link rel="preload" href="/assets/fonts/cormorant-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    // js liga as animações de entrada (sem JS tudo aparece no lugar)
+    document.documentElement.classList.add('js')
+    // abertura com a logo: uma vez por visita e nunca pra quem pediu menos movimento.
+    // ?abertura no endereço força a abertura (pra revisar sem abrir aba anônima)
+    try {
+      var forcar = /[?&]abertura(=|&|$)/.test(location.search)
+      if ((forcar || !sessionStorage.getItem('jv-abertura')) && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('abre')
+        sessionStorage.setItem('jv-abertura', '1')
+      }
+    } catch (e) {}
+  </script>
+  <title>Advogado em Tumiritinga/MG | Dr. Jonathan Vale, Advocacia</title>
+  <meta name="description" content="Advocacia em Tumiritinga/MG e região: Direito Trabalhista, Previdenciário (INSS), de Família e Lei Maria da Penha. Fale com o Dr. Jonathan Vale pelo WhatsApp.">
+  <!-- @robots -->
+  <meta name="theme-color" content="#0A1424">
+  <meta name="format-detection" content="telephone=no">
+  <!-- @meta-dominio -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Jonathan Vale Advocacia">
+  <meta property="og:title" content="Dr. Jonathan Vale | Advocacia em Tumiritinga/MG">
+  <meta property="og:description" content="Direito Trabalhista, Previdenciário, de Família e Lei Maria da Penha. Atendimento presencial e online em Tumiritinga e região.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dr. Jonathan Vale, advogado, no escritório">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- @css -->
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- @parcial 00-header -->
+
+  <main id="conteudo">
+    <!-- @parcial 01-hero -->
+    <!-- @parcial 02-selos -->
+    <!-- @parcial 03-situacoes -->
+    <!-- @parcial 04-areas -->
+    <!-- @parcial 05-sobre -->
+    <!-- @parcial 06-processo -->
+    <!-- @parcial 07-compromissos -->
+    <!-- @parcial 08-prazos -->
+    <!-- @parcial 09-perguntas -->
+    <!-- @parcial 10-local -->
+    <!-- @parcial 11-cta -->
+  </main>
+
+  <!-- @parcial 12-rodape -->
+  <!-- @parcial 13-flutuante -->
+
+  <!-- @sprite -->
+  <!-- @schema -->
+  <!-- @js -->
+</body>
+</html>

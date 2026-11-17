@@ -1,0 +1,53 @@
+/* ---------------------------------------------------------------- sobre */
+.sobre__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: 72px; align-items: center; }
+.sobre__foto { position: relative; margin: 0; }
+.sobre__foto::before {
+  content: '';
+  position: absolute;
+  inset: -7% -5%;
+  background: radial-gradient(circle at 50% 42%, rgb(232 184 74 / .16), transparent 66%);
+  pointer-events: none;
+}
+.sobre__foto img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgb(232 184 74 / .45);
+  box-shadow: 0 30px 70px rgb(0 0 0 / .55);
+}
+/* moldura dupla: o fio dourado de fora, deslocado, como em quadro de escritório */
+.sobre__foto::after {
+  content: '';
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1px solid rgb(232 184 74 / .28);
+  border-radius: 3px;
+  z-index: -1;
+}
+.sobre__rotulo { font-size: 12px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--ouro); margin-bottom: 18px; }
+.sobre__titulo { font-size: 40px; letter-spacing: .06em; }
+.sobre__oab { margin: 20px 0 26px; font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: #fff; }
+.sobre__oab span { margin: 0 10px; color: var(--ouro); }
+.sobre__corpo > p:not(.sobre__rotulo, .sobre__oab) { color: var(--texto); margin-bottom: 18px; max-width: 56ch; font-size: 16.5px; }
+.sobre__selos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.sobre__selos li {
+  padding: 10px 16px;
+  border: 1px solid rgb(232 184 74 / .35);
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgb(232 184 74 / .08), transparent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ouro-claro);
+}
+@media (max-width: 61.99em) {
+  .sobre__inner { grid-template-columns: 1fr; gap: 44PX; text-align: center; }
+  .sobre__foto { width: min(340PX, 80%); margin-inline: auto; }
+  .sobre__foto::after { inset: 12PX -12PX -12PX 12PX; }
+  .sobre__titulo { font-size: clamp(25PX, 7vw, 34PX); }
+  .sobre__corpo > p:not(.sobre__rotulo, .sobre__oab) { margin-inline: auto; }
+  .sobre__selos { justify-content: center; }
+}
