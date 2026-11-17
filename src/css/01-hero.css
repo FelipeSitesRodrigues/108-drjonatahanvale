@@ -121,16 +121,16 @@
   .hero__doutor picture, .hero__doutor img { height: 100%; }
   .hero__doutor img { object-fit: cover; object-position: top center; filter: none; }
   .hero__doutor::before { display: none; }
-  /* faixa da largura da tela inteira, que segue em marinho sólido até o fim do hero (na largura da moldura ficava um retângulo, e terminando no pé da foto ficava uma linha): o pé da foto some num marinho OPACO por cima dela (antes era máscara de 70% a 100%, que
+  /* faixa da largura da tela inteira, que começa só no pé da foto (em 62% cobria os braços) e segue em marinho sólido até o fim do hero (na largura da moldura ficava um retângulo, e terminando no pé da foto ficava uma linha): o pé da foto some num marinho OPACO por cima dela (antes era máscara de 70% a 100%, que
      deixava os braços translúcidos e a Themis do fundo aparecia através do corpo) */
   .hero__doutor::after {
     content: '';
     position: absolute;
     left: calc(50% - 50vw);
     width: 100vw;
-    top: 62%;
+    top: 86%;
     height: 100vh;
-    background: linear-gradient(180deg, rgb(10 20 36 / 0) 0, rgb(10 20 36 / .88) 90PX, var(--marinho) 140PX);
+    background: linear-gradient(180deg, rgb(10 20 36 / 0) 0, rgb(10 20 36 / .9) 44PX, var(--marinho) 70PX);
     pointer-events: none;
   }
   .hero__sub { margin-top: 22PX; font-size: 15.5PX; }
