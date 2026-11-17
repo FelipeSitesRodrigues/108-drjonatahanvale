@@ -100,7 +100,7 @@
   .hero { min-height: 0; display: block; }
   .hero__fundo img { object-position: 50% 100%; }
   .hero__veu {
-    background: linear-gradient(180deg, rgb(5 8 15 / .82) 0%, rgb(5 8 15 / .55) 30%, rgb(5 8 15 / .25) 46%, rgb(8 15 28 / .82) 66%, rgb(10 20 36 / .94) 80%, var(--marinho) 100%);
+    background: linear-gradient(180deg, rgb(5 8 15 / .82) 0%, rgb(5 8 15 / .55) 30%, rgb(5 8 15 / .25) 46%, rgb(8 15 28 / .9) 62%, var(--marinho) 74%, var(--marinho) 100%);
   }
   .hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 104PX 0 52PX; }
   .hero__inner > :not(.hero__doutor) { max-width: 600PX; }
@@ -116,14 +116,23 @@
     height: auto;
     aspect-ratio: 330 / 360;
     margin: 26PX 0 -6PX;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
     animation-name: hero-doutor-cel;
   }
-  .hero__doutor picture, .hero__doutor img { height: auto; }
-  .hero__doutor img { object-fit: initial; filter: none; }
+  .hero__doutor picture, .hero__doutor img { height: 100%; }
+  .hero__doutor img { object-fit: cover; object-position: top center; filter: none; }
   .hero__doutor::before { display: none; }
+  /* faixa da largura da tela inteira, que segue em marinho sólido até o fim do hero (na largura da moldura ficava um retângulo, e terminando no pé da foto ficava uma linha): o pé da foto some num marinho OPACO por cima dela (antes era máscara de 70% a 100%, que
+     deixava os braços translúcidos e a Themis do fundo aparecia através do corpo) */
+  .hero__doutor::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    top: 62%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(10 20 36 / 0) 0, rgb(10 20 36 / .88) 90PX, var(--marinho) 140PX);
+    pointer-events: none;
+  }
   .hero__sub { margin-top: 22PX; font-size: 15.5PX; }
   .hero__inner > .hero__botoes { margin-top: 26PX; width: 100%; max-width: 380PX; }
   .hero__linha { justify-content: center; margin-top: 24PX; font-size: 10PX; letter-spacing: .16em; }
