@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------- prazos (seção clara)
-   10 e 48 contam (contador do kit); 2 e 3 são pequenos demais pra contar e entram com pulo. */
+   Pontos de direito sem prazo (o Dr. Jonathan pediu: prazo no site vira promessa). As palavras entram com pulo. */
 .prazos__grade { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
 .prazo { padding: 0 16px; border-left: 1px solid var(--linha-clara); }
 .prazo:first-child { border-left: 0; }
@@ -12,6 +12,7 @@
   white-space: nowrap;
   line-height: 1.1;
   letter-spacing: .03em;
+  font-variant-numeric: lining-nums;
   text-transform: uppercase;
   background: var(--espelho-escuro);
   -webkit-background-clip: text;
@@ -34,7 +35,7 @@
 }
 @media (max-width: 35.99em) {
   .prazos__grade { grid-template-columns: 1fr; gap: 26PX; text-align: left; }
-  .prazo, .prazo:nth-child(even) { border-left: 2px solid rgb(184 134 43 / .5); padding: 2PX 0 2PX 18PX; }
+  .prazo, .prazo:nth-child(even), .prazo:first-child { border-left: 2px solid rgb(184 134 43 / .5); padding: 2PX 0 2PX 18PX; }
   .prazo__num { font-size: 34PX; margin-bottom: 4PX; }
   .prazo p { margin-inline: 0; max-width: 40ch; }
   .prazos__nota { font-size: 18PX; }

@@ -21,10 +21,11 @@ export function schemaAdvocacia(html, cfg) {
       addressRegion: 'MG',
       addressCountry: 'BR',
     },
-    areaServed: [{ '@type': 'City', name: 'Tumiritinga' }, { '@type': 'AdministrativeArea', name: 'Vale do Rio Doce, MG' }],
+    areaServed: { '@type': 'Country', name: 'Brasil' },
+    sameAs: [cfg.instagram, cfg.facebook].filter(Boolean),
     hasMap: cfg.mapa,
-    founder: { '@type': 'Person', name: 'Jonathan Eduardo Pires da Silva Vale', jobTitle: 'Advogado' },
-    knowsAbout: ['Direito Trabalhista', 'Direito Previdenciário', 'INSS', 'Aposentadoria', 'BPC/LOAS', 'Direito de Família', 'Divórcio', 'Pensão alimentícia', 'Guarda', 'Lei Maria da Penha', 'Medida protetiva'],
+    founder: { '@type': 'Person', name: 'Jonathan Eduardo Pires da Silva Vale', jobTitle: 'Advogado', description: 'OAB/MG 242.015' },
+    knowsAbout: ['Direito Trabalhista', 'Direito Previdenciário', 'INSS', 'Aposentadoria', 'BPC/LOAS', 'Direito de Família', 'Divórcio', 'Pensão alimentícia', 'Guarda', 'Lei Maria da Penha', 'Defesa do acusado na Lei Maria da Penha', 'Revogação de medida protetiva'],
     knowsLanguage: 'pt-BR',
   }
   if (base) escritorio.url = `${base}/`
